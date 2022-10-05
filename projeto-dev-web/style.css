@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+/* Título */
+
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato&display=swap');
+/* Título Card */
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+/* Letra das informações do card */
+
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background-color: aquamarine;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sessao1{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    gap: 10px
+}
+
+.footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    margin: 15px;
+    text-decoration: none;
+}
+
+.tituloFonte {
+    display: block;
+    height: 50px;
+    width: 135px;
+    margin: auto;
+    padding: 25px;
+    color: black;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    border: 1px solid black;
+    background-image: url("./Logo-Nba/990__1615382342_360_nba_logo_1a5cfe61c1d3.jpeg");
+    background-size: contain;
+    background-position: bottom;
+    border-radius: 50%;
+}
+
+.fonteTituloCard>a {
+    font-family: 'Comforter Brush', cursive;
+    text-decoration: none;
+    font-size: 23px;
+    color: black;
+    /* background-image: linear-gradient(#000000, #00000004, rgba(0, 0, 0, 0));
+    background-clip: text;
+    -webkit-background-clip: text; */
+
+}
+
+.fonteInformacaoCard {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+}
+
+.fotosJogadores {
+    width: 52%;
+    border: 1px solid black;
+    border-radius: 20%;
+    background-color: white;
+    margin: 5px;
+}
+
+.iconeLogoTimes {
+    width: 20%;
+}
+
+.objeto1 {
+    height: 400px;
+    width: 350px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #552583;
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #FDB927;
+}
+
+.objeto2{
+    height: 400px;
+    width: 350px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #FFC72C;
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #1D428A;
+}
+
+.objeto3{
+    height: 400px;
+    width: 350px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #00471B;
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #EEE1C6;
+}
+
+.objeto4{
+    height: 400px;
+    width: 350px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid black;
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(42, 42, 42);
+}
+
+.objeto5{
+    height: 400px;
+    width: 350px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid #BA9653;
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #007A33;
+}
