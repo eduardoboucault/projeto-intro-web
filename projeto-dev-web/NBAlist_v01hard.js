@@ -6,7 +6,7 @@ const tagH1 = document.querySelector(".tituloFonte")
 const tagMain = document.querySelector(".main")
 const tagFooter = document.querySelector(".footer")
 const tagInput = document.querySelector("#input")
-const tagButton = document.querySelector(".botao")
+const tagButton = document.querySelector("#button")
 const secConteudo = document.querySelector(".sectionConteudo")
 const tagArticle = document.querySelector(".article")
 const tagUl = document.querySelector("#listaNaoOrdenada")
@@ -25,7 +25,7 @@ const arrayDeLiga = []
 
 //* FUNÇÃO DE CRIAR OBJETOS
 
-function criarObjetos(img, logo, classe, player, posicao, time, altura, ganhouLiga, anoTitulo) {
+function criarObjetos(img, logo, classe, player, posicao, time, altura, ganhouLiga, camisa, trofeu) {
     this.img = img
     this.logo = logo
     this.classe = classe
@@ -34,16 +34,21 @@ function criarObjetos(img, logo, classe, player, posicao, time, altura, ganhouLi
     this.time = time
     this.altura = altura
     this.ganhouLiga = ganhouLiga
-    this.anoTitulo = anoTitulo
+    this.camisa = camisa
+    this.trofeu = trofeu
     arrayDeJogadores.push(this)
     this.ganhouLiga === true ? arrayDeLiga.push(this) : alert('Item não foi adicionado')
 }
 
-const jogador1 = new criarObjetos("./Imagens jogadores/LebronJames2k22.jpeg", "./Logo times/losangeleslakers.svg", ".objeto1" ,"LeBron James", "Ala-pivô/Ala", "Los Angeles Lakers", 2.06, true, [2012, 2013, 2016, 2020])
-const jogador2 = new criarObjetos("./Imagens jogadores/StephenCurry2k22.jpeg", "./Logo times/goldenstatewarriors.svg",".objeto2", "Stephen Curry", "Armador", "Golden State Warriors", 1.88, true, [2015, 2017, 2018, 2022])
-const jogador3 = new criarObjetos("./Imagens jogadores/GiannisAntetokom2k22.jpeg", "./Logo times/milwaukeebucks.svg",".objeto3","Giannis Antetokounmpo", "Ala-pivô/Ala/Pivô", "Milwaukee Bucks", 2.11, true, [2021])
-const jogador4 = new criarObjetos("./Imagens jogadores/KevinDurant2k22.jpeg", "./Logo times/broklynnets.svg",".objeto4", "Kevin Durant", "Ala-pivô/Ala", "Brooklyn Nets", 2.08, true, [2017, 2018])
-const jogador5 = new criarObjetos("./Imagens jogadores/JaysonTatum2k22.jpeg", "./Logo times/bostonceltics.svg",".objeto5", "Jayson Tatum", "Ala-pivô/Pivô/Ala", "Boston Celtics", 2.03, false, [0])
+const jogador1 = new criarObjetos("./Imagens jogadores/LebronJames2k22.jpeg", "./Logo times/losangeleslakers.svg", ".objeto1" ,"LeBron James", "Ala-pivô/Ala", "Los Angeles Lakers", 2.06, true, [6], "./Logo-Nba/trophy-icon.svg")
+
+const jogador2 = new criarObjetos("./Imagens jogadores/StephenCurry2k22.jpeg", "./Logo times/goldenstatewarriors.svg",".objeto2", "Stephen Curry", "Armador", "Golden State Warriors", 1.88, true, [30], './Logo-Nba/trophy-icon.svg' )
+
+const jogador3 = new criarObjetos("./Imagens jogadores/GiannisAntetokom2k22.jpeg", "./Logo times/milwaukeebucks.svg",".objeto3","Giannis Antetokounmpo", "Ala-pivô/Ala/Pivô", "Milwaukee Bucks", 2.11, true, [34], './Logo-Nba/trophy-icon.svg')
+
+const jogador4 = new criarObjetos("./Imagens jogadores/KevinDurant2k22.jpeg", "./Logo times/broklynnets.svg",".objeto4", "Kevin Durant", "Ala-pivô/Ala", "Brooklyn Nets", 2.08, true, [7] , './Logo-Nba/trophy-icon.svg')
+
+const jogador5 = new criarObjetos("./Imagens jogadores/JaysonTatum2k22.jpeg", "./Logo times/bostonceltics.svg",".objeto5", "Jayson Tatum", "Ala-pivô/Pivô/Ala", "Boston Celtics", 2.03, false, [0], "./Logo-Nba/trophy-icon.svg")
 
 //* VARIÁVEL MÉDIA
 
@@ -75,7 +80,7 @@ const arrayEmString = arrayDeJogadores.map((x) => {
         time: x.time,
         altura: x.altura,
         ganhouLiga: x.ganhouLiga,
-        anoTitulo: x.anoTitulo.toString()
+        camisa: x.camisa.toString()
     }
 })
 
@@ -94,12 +99,16 @@ function buscador() {
         <img class="fotosJogadores" src="${filtered[0].img}" alt="Imagem não suportada">
         <img class="iconeLogoTimes" src="${filtered[0].logo}" alt="Imagem não suportada">
         <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/2544/lebron-james">${filtered[0].player}</a></p>
-        <p class="fonteInformacaoCard">Posição: ${filtered[0].posicao}</br>
-        Time: ${filtered[0].time}</br>
-        Altura: ${filtered[0].altura}</br>
-        Ano(s) em que foi campeão: ${filtered[0].anoTitulo}</br></p>
+        <p class="fonteInformacaoCard">Position: ${filtered[0].posicao}</br>
+        Team: ${filtered[0].time}</br>
+        Height: ${filtered[0].altura}</br>
+        NBA Trophys: ${filtered[0].ganhouLiga}</br></p>
         `,
-        tagInput.value = ""
+        tagInput.value = "",
+        tagLi2.innerHTML = "",
+        tagLi3.innerHTML = "",
+        tagLi4.innerHTML = "",
+        tagLi5.innerHTML = ""
     } else {
         alert('Não encontrado')
     }
@@ -113,50 +122,62 @@ function homePage() {
     <img class="fotosJogadores" src="./Imagens jogadores/LebronJames2k22.jpeg" alt="Lebron James">
     <img class="iconeLogoTimes" src="./Logo times/losangeleslakers.svg" alt="Lebron James">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/2544/lebron-james">${jogador1.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador1.posicao}</br>
-    Time: ${jogador1.time}</br>
-    Altura: ${jogador1.altura}</br>
-    Ano(s) em que foi campeão: ${jogador1.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador1.posicao}</br>
+    Team: ${jogador1.time}</br>
+    Player Number: ${jogador1.camisa}</br>
+    Height: ${jogador1.altura}</br>
+    NBA Trophys:<img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi2.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/StephenCurry2k22.jpeg" alt="Stephen Curry">
     <img class="iconeLogoTimes" src="./Logo times/goldenstatewarriors.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/201939/stephen-curry">${jogador2.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador2.posicao}</br>
-    Time: ${jogador2.time}</br>
-    Altura: ${jogador2.altura}</br>
-    Ano(s) em que foi campeão: ${jogador2.anoTitulo}</p></br>
+    <p class="fonteInformacaoCard">Position: ${jogador2.posicao}</br>
+    Team: ${jogador2.time}</br>
+    Player Number: ${jogador2.camisa}</br>
+    Height: ${jogador2.altura}</br>
+    NBA Trophys:<img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi3.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/GiannisAntetokom2k22.jpeg" alt="Giannis Antetokom">
     <img class="iconeLogoTimes" src="./Logo times/milwaukeebucks.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/203507/giannis-antetokounmpo">${jogador3.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador3.posicao}</br>
-    Time: ${jogador3.time}</br>
-    Altura: ${jogador3.altura}</br>
-    Ano(s) em que foi campeão: ${jogador3.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador3.posicao}</br>
+    Team: ${jogador3.time}</br>
+    Player Number: ${jogador3.camisa}</br>
+    Height: ${jogador3.altura}</br>
+    NBA Trophys: <img class="trofeu" src="${jogador3.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi4.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/KevinDurant2k22.jpeg" alt="Kevin Durant">
     <img class="iconeLogoTimes" src="./Logo times/broklynnets.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/201142/kevin-durant">${jogador4.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador4.posicao}</br>
-    Time: ${jogador4.time}</br>
-    Altura: ${jogador4.altura}</br>
-    Ano(s) em que foi campeão: ${jogador4.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador4.posicao}</br>
+    Team: ${jogador4.time}</br>
+    Player Number: ${jogador4.camisa}</br>
+    Height: ${jogador4.altura}</br>
+    NBA Trophys: <img class="trofeu" src="${jogador4.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi5.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/JaysonTatum2k22.jpeg" alt="Jayson Tatum">
     <img class="iconeLogoTimes" src="./Logo times/bostonceltics.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/1628369/jayson-tatum">${jogador5.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador5.posicao}</br>
-    Time: ${jogador5.time}</br>
-    Altura: ${jogador5.altura}</br>
-    Ano(s) em que foi campeão: ${jogador5.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador5.posicao}</br>
+    Team: ${jogador5.time}</br>
+    Player Number: ${jogador5.camisa}</br>
+    Height: ${jogador5.altura}</br>
+    NBA Trophys: None </p></br>
     `
     tagFooter.innerHTML = `<p>Clique <a target="_blank" href="https://www.nba.com">aqui</a> para mais informações</p>`
 }
@@ -167,50 +188,62 @@ function carregaConteudo() {
     <img class="fotosJogadores" src="./Imagens jogadores/LebronJames2k22.jpeg" alt="Lebron James">
     <img class="iconeLogoTimes" src="./Logo times/losangeleslakers.svg" alt="Lebron James">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/2544/lebron-james">${jogador1.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador1.posicao}</br>
-    Time: ${jogador1.time}</br>
-    Altura: ${jogador1.altura}</br>
-    Ano(s) em que foi campeão: ${jogador1.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador1.posicao}</br>
+    Team: ${jogador1.time}</br>
+    Player Number: ${jogador1.camisa}</br>
+    Height: ${jogador1.altura}</br>
+    NBA Trophys:<img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador1.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi2.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/StephenCurry2k22.jpeg" alt="Stephen Curry">
     <img class="iconeLogoTimes" src="./Logo times/goldenstatewarriors.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/201939/stephen-curry">${jogador2.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador2.posicao}</br>
-    Time: ${jogador2.time}</br>
-    Altura: ${jogador2.altura}</br>
-    Ano(s) em que foi campeão: ${jogador2.anoTitulo}</p></br>
+    <p class="fonteInformacaoCard">Position: ${jogador2.posicao}</br>
+    Team: ${jogador2.time}</br>
+    Player Number: ${jogador2.camisa}</br>
+    Height: ${jogador2.altura}</br>
+    NBA Trophys:<img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi3.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/GiannisAntetokom2k22.jpeg" alt="Giannis Antetokom">
     <img class="iconeLogoTimes" src="./Logo times/milwaukeebucks.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/203507/giannis-antetokounmpo">${jogador3.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador3.posicao}</br>
-    Time: ${jogador3.time}</br>
-    Altura: ${jogador3.altura}</br>
-    Ano(s) em que foi campeão: ${jogador3.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador3.posicao}</br>
+    Team: ${jogador3.time}</br>
+    Player Number: ${jogador3.camisa}</br>
+    Height: ${jogador3.altura}</br>
+    NBA Trophys: <img class="trofeu" src="${jogador3.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi4.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/KevinDurant2k22.jpeg" alt="Kevin Durant">
     <img class="iconeLogoTimes" src="./Logo times/broklynnets.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/201142/kevin-durant">${jogador4.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador4.posicao}</br>
-    Time: ${jogador4.time}</br>
-    Altura: ${jogador4.altura}</br>
-    Ano(s) em que foi campeão: ${jogador4.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador4.posicao}</br>
+    Team: ${jogador4.time}</br>
+    Player Number: ${jogador4.camisa}</br>
+    Height: ${jogador4.altura}</br>
+    NBA Trophys: <img class="trofeu" src="${jogador4.trofeu}" alt="Troféu">
+    <img class="trofeu" src="${jogador2.trofeu}" alt="Troféu"></p></br>
     `
 
     tagLi5.innerHTML = `
     <img class="fotosJogadores" src="./Imagens jogadores/JaysonTatum2k22.jpeg" alt="Jayson Tatum">
     <img class="iconeLogoTimes" src="./Logo times/bostonceltics.svg">
     <p class="fonteTituloCard"><a target="_blank" href="https://www.nba.com/player/1628369/jayson-tatum">${jogador5.player}</a></p>
-    <p class="fonteInformacaoCard">Posição: ${jogador5.posicao}</br>
-    Time: ${jogador5.time}</br>
-    Altura: ${jogador5.altura}</br>
-    Ano(s) em que foi campeão: ${jogador5.anoTitulo}</br></p>
+    <p class="fonteInformacaoCard">Position: ${jogador5.posicao}</br>
+    Team: ${jogador5.time}</br>
+    Player Number: ${jogador5.camisa}</br>
+    Height: ${jogador5.altura}</br>
+    NBA Trophys: None </p></br>
     `
     tagFooter.innerHTML = `<p>Clique <a target="_blank" href="https://www.nba.com">aqui</a> para mais informações</p>`
 }
