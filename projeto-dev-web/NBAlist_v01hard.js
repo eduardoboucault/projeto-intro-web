@@ -250,3 +250,4 @@ function carregaConteudo() {
 
 //* Finalizado JS
 //* Criado nova branch para esse última versão.
+//* 16/10/2022
