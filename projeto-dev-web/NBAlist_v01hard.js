@@ -247,5 +247,3 @@ function carregaConteudo() {
     `
     tagFooter.innerHTML = `<p>Clique <a target="_blank" href="https://www.nba.com">aqui</a> para mais informações</p>`
 }
-
-//* Finalizado JS
