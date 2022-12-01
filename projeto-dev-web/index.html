@@ -4,10 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best NBA Players</title>
-    <script src="script.js"></script>
+    <title>🏀 Jogadores NBA 🏀</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="NBAlist_v01hard.js" defer></script>
 </head>
-<body>
-    
+
+<body onload="carregaConteudo()" class="body">
+
+    <header class="header">
+        
+        <h1 class="tituloFonte"></h1>
+        
+    </header>
+
+    <main class="main">
+
+        <section class="sessao1" id="section">
+            <button onclick="homePage()" id="button" type="submit">Library</button>
+            <label class="Input-label" for="pesquisa" hidden>Search</label>
+            <input class="Input-text" id="input" type="text" placeholder="Find player">
+            <button onclick="buscador()" id="button" type="submit">Search</button>
+        </section>
+
+        <section class="sectionConteudo">
+            
+            <ul class="unordedList" id="listaNaoOrdenada">
+
+                <li class="objeto1">
+                    
+                </li>
+
+                <li class="objeto2">
+                    
+                </li>
+
+                <li class="objeto3">
+                    
+                </li>
+
+                <li class="objeto4">
+                    
+                </li>
+
+                <li class="objeto5">
+                    
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        
+    </footer>
+
 </body>
 </html>
